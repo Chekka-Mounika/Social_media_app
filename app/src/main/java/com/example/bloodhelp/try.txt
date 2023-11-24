@@ -1,0 +1,69 @@
+         FirebaseRecyclerOptions<MessageMember> options=new FirebaseRecyclerOptions.Builder<MessageMember>()
+                   .setQuery(msgref, MessageMember.class)
+                   .build();
+
+    FirebaseRecyclerAdapter<MessageMember , Message_Viewholder> firebaseRecyclerAdapter=
+                new FirebaseRecyclerAdapter<MessageMember, Message_Viewholder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull Message_Viewholder holder, int position, @NonNull MessageMember model) {
+                        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+                        holder.type_=model.getType();
+                        holder.setITem(getApplication() ,  model.getMessage(),model.getTime(),model.getData() ,model.getType() ,model.getSenderid() ,model.getRecieverid());
+                        String msg=model.getMessage();
+                        holder.playsenderabtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                MediaPlayer mediaPlayer=new MediaPlayer();
+                                holder.playsenderabtn.setImageResource(R.drawable.baseline_pause_grey);
+                                try {
+                                    mediaPlayer.setDataSource(msg);
+                                    mediaPlayer.prepare();
+                                    mediaPlayer.start();
+                                    holder.playsenderabtn.setClickable(false);
+                                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                        @Override
+                                        public void onCompletion(MediaPlayer mp) {
+                                            holder.playsenderabtn.setClickable(true);
+                                            mediaPlayer.stop();
+                                            holder.playsenderabtn.setImageResource(R.drawable.baseline_play_arrow_24);
+                                        }
+                                    });
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        });
+                        holder.playrecieverabtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                MediaPlayer mediaPlayer=new MediaPlayer();
+                                holder.playrecieverabtn.setImageResource(R.drawable.baseline_pause_grey);
+                                try {
+                                    mediaPlayer.setDataSource(msg);
+                                    mediaPlayer.prepare();
+                                    mediaPlayer.start();
+                                    holder.playrecieverabtn.setClickable(false);
+                                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                        @Override
+                                        public void onCompletion(MediaPlayer mp) {
+                                            holder.playrecieverabtn.setClickable(true);
+                                            mediaPlayer.stop();
+                                            holder.playrecieverabtn.setImageResource(R.drawable.baseline_play_arrow_24);
+                                        }
+                                    });
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        });
+                    }
+                    @NonNull
+                    @Override
+                    public Message_Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.message_layout,parent,false);
+                        return new Message_Viewholder(view);
+                    }
+                };
+
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+        firebaseRecyclerAdapter.startListening();

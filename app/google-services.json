@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "609310756146",
+    "project_id": "media-hub-8b0d8",
+    "storage_bucket": "media-hub-8b0d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609310756146:android:ca08a7c612b70c6abf1b2b",
+        "android_client_info": {
+          "package_name": "com.example.bloodhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609310756146-jejj3im0vtsrg8qbv8kta13vko4j10ne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZabEn6iOYj97reF53orzNKqnMbgkA6pY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609310756146-jejj3im0vtsrg8qbv8kta13vko4j10ne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

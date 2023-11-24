@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="10dp"
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#F1ECEC"
+        app:cardCornerRadius="7dp"
+        android:layout_margin="15dp"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="10dp"
+                    app:cardPreventCornerOverlap="false"
+                    >
+
+                    <ImageView
+                        android:id="@+id/your_qitem_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/baseline_person_outline_24"
+                        android:backgroundTint="@color/black"
+                        android:clickable="true"
+                        android:scaleType="fitCenter" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="time"
+                    android:textColor="@color/grey"
+                    android:padding="4dp"
+                    android:id="@+id/your_qitem_time"
+                    android:layout_gravity="right"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Name"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/grey"
+                    android:id="@+id/your_qitem_name"
+                    android:layout_gravity="left"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Question"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/black"
+                    android:id="@+id/your_qitem_question"
+                    android:layout_gravity="left"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/your_qitem_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="Delete"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
